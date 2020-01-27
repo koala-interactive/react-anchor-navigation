@@ -1,0 +1,33 @@
+{
+  "name": "react-anchor-navigation",
+  "version": "0.1.0",
+  "description": "React lightweight library for anchor scrolling and navigation tied to URL hash.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koala-interactive/react-anchor-navigation.git"
+  },
+  "keywords": [
+    "react",
+    "anchor",
+    "hash",
+    "scrolling",
+    "navigation"
+  ],
+  "author": "koala-interactive",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koala-interactive/react-anchor-navigation/issues"
+  },
+  "homepage": "https://github.com/koala-interactive/react-anchor-navigation#readme",
+  "devDependencies": {
+    "@types/node": "^13.5.0",
+    "@types/react": "^16.9.19"
+  },
+  "dependencies": {
+    "react": "^16.12.0"
+  }
+}
