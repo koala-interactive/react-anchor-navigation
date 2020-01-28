@@ -1,0 +1,26 @@
+{
+  "dist/umd/react-anchor-navigation.js": {
+    "bundled": 3704,
+    "minified": 3702,
+    "gzipped": 1593
+  },
+  "dist/cjs/react-anchor-navigation.js": {
+    "bundled": 3564,
+    "minified": 3558,
+    "gzipped": 1519
+  },
+  "dist/esm/react-anchor-navigation.js": {
+    "bundled": 3416,
+    "minified": 3410,
+    "gzipped": 1497,
+    "treeshaked": {
+      "rollup": {
+        "code": 417,
+        "import_statements": 38
+      },
+      "webpack": {
+        "code": 1320
+      }
+    }
+  }
+}

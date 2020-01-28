@@ -2,9 +2,14 @@
   "name": "react-anchor-navigation",
   "version": "0.1.0",
   "description": "React lightweight library for anchor scrolling and navigation tied to URL hash.",
-  "main": "index.js",
+  "main": "./dist/cjs/react-anchor-navigation.js",
+  "module": "./dist/esm/react-anchor-navigation.js",
+  "browser": {
+    "./dist/cjs/react-anchor-navigation.js": "./dist/umd/react-anchor-navigation.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "del dist && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -23,11 +28,27 @@
     "url": "https://github.com/koala-interactive/react-anchor-navigation/issues"
   },
   "homepage": "https://github.com/koala-interactive/react-anchor-navigation#readme",
+  "peerDependencies": {
+    "react": ">=16.8.6"
+  },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rollup/plugin-node-resolve": "^7.0.0",
     "@types/node": "^13.5.0",
-    "@types/react": "^16.9.19"
+    "@types/react": "^16.3.13",
+    "del-cli": "^3.0.0",
+    "rollup": "^1.30.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-size-snapshot": "^0.10.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
-    "react": "^16.12.0"
+    "react": "^16.8.6"
   }
 }
