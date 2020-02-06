@@ -4,9 +4,9 @@ React lightweight library for anchor scrolling and navigation tied to URL hash.
 
 ## Features
 
-The library export multiples helpers designed to make your anchor navigation works seamlessly.
+This library exports multiple helpers designed to make your anchor navigation works seamlessly.
 
-And four components :
+Four components :
 
 - [AnchorContext](#AnchorContext)
 - [AnchorLink](#AnchorLink)
@@ -19,9 +19,6 @@ Two hooks used internally (only import it for advanced or customized handling) :
 - [useHash](#useHash)
 
 ## Getting Started
-
-TODO:
-Provide installation instructions, general usage guidance, API examples, and build and deployment information. Assume as little prior knowledge as possible, describing everything in clear and coherent steps. Avoid words such as "just" and "simple," which can be off putting to users who do not understand the instructions.
 
 ### Installation
 
@@ -41,7 +38,7 @@ yarn add react-anchor-navigation
 
 ### Usage
 
-All our features are in these four components, for advanced and customized usage refers to the internal custom hooks documentation [here](#Advanded-Usage)
+All our features are in these four components, for advanced and customized usage, please refers to the internal custom hooks documentation [here](#Advanded-Usage)
 
 ```jsx
 import {
@@ -54,7 +51,7 @@ import {
 
 #### AnchorProvider
 
-AnchorProvider is our top level contextProvider. Wrap it around your top-most component :
+AnchorProvider is our top level contextProvider. Wrap it around your topmost component for your view :
 
 ```JSX
 <AnchorProvider>
@@ -102,7 +99,7 @@ Internally it creates a `<b/>` tag to which we scroll to on reload and detect if
 
 ```JSX
 <>
-  <b {...attributes}></b>
+  <b {...attributes} />
   {...children}
 </>
 ```
@@ -124,11 +121,11 @@ interface TProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 ### Advanded Usage
 
-Here will be informations about our internals processing hooks. For most use and without needs for great customizations, you will not need to import those hooks.
+Here will be informations about our internal processing hooks. In most cases and without needs for great customizations, you will not need to import those hooks.
 
 #### useHash
 
-useHash is a custom react hooks used internally in AnchorProvider. We still export it if you want to have an advanced usage (Otherwise it should not be needed) and not use AnchorProvider.
+useHash is a custom react hook used internally in AnchorProvider. We still export it if you want to have an advanced usage (Otherwise it should not be needed) and not use AnchorProvider.
 
 Usage :
 
@@ -161,10 +158,10 @@ For further informations you can look into the sources for AnchorProvider.
 
 #### useAnchorScrollListener
 
-useAnchorScrollListener is another custom react hooks used internally in AnchorProvider. If you wish not to use AnchorProvider this hooks can help you customize your anchor handling.
+useAnchorScrollListener is another custom react hook used internally in AnchorProvider. If you wish not to use AnchorProvider this hook can help you customize your anchor handling.
 
 It is called with the setter from `useHash`. The `ref` is the `TStore` also sent to `useHash`. These two hooks works best together.
-Internally it listen to the onScroll event and update the hash if one registered sections has been detected above our scroll position.
+Internally it listens to the onScroll event and update the hash if one registered section has been detected above our scroll position.
 
 ```js
 useAnchorScrollListener(ref, setHash);
