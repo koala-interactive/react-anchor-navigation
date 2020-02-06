@@ -8,15 +8,15 @@ The library export multiples helpers designed to make your anchor navigation wor
 
 And four components :
 
-- [AnchorContext](####AnchorContext)
-- [AnchorLink](####AnchorLink)
-- [AnchorProvider](####AnchorProvider)
-- [AnchorSection](####AnchorSection)
+- [AnchorContext](#AnchorContext)
+- [AnchorLink](#AnchorLink)
+- [AnchorProvider](#AnchorProvider)
+- [AnchorSection](#AnchorSection)
 
 Two hooks used internally (only import it for advanced or customized handling) :
 
-- [useAnchorScrollListener](####useAnchorScrollListener)
-- [useHash](####useHash)
+- [useAnchorScrollListener](#useAnchorScrollListener)
+- [useHash](#useHash)
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ yarn add react-anchor-navigation
 
 ### Usage
 
-All our features are in these four components, for advanced and customized usage refers to the internal custom hooks documentation [here](####Advanded-Usage)
+All our features are in these four components, for advanced and customized usage refers to the internal custom hooks documentation [here](#Advanded-Usage)
 
 ```jsx
 import {
@@ -169,6 +169,14 @@ Internally it listen to the onScroll event and update the hash if one registered
 ```js
 useAnchorScrollListener(ref, setHash);
 ```
+
+### Custom Components Examples
+
+TODO
+
+### Embedded Demos
+
+TODO
 
 ## Roadmap
 
