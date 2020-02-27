@@ -6,6 +6,7 @@ import { getElementScrollPosition } from "../utils/getElementScrollPosition";
 import { AnchorContext, TContext } from "./AnchorContext";
 
 export interface TStore {
+  offset: number;
   sections: TContext["sections"];
   blockScrollEvent: boolean;
   scroller: HTMLElement | null;
@@ -14,10 +15,12 @@ export interface TStore {
 interface TProps {
   children: React.ReactNode[];
   getScroller?: () => TStore["scroller"];
+  offset?: number;
 }
 
-export function AnchorProvider({ children, getScroller }: TProps) {
+export function AnchorProvider({ children, getScroller, offset }: TProps) {
   const ref = useRef<TStore>({
+    offset: offset || 0,
     sections: [],
     blockScrollEvent: false,
     scroller: null
@@ -66,6 +69,7 @@ export function AnchorProvider({ children, getScroller }: TProps) {
   return (
     <AnchorContext.Provider
       value={{
+        offset,
         hash,
         sections: ref.current.sections,
         setHash,

@@ -4,7 +4,6 @@ import path from "path";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
-import builtins from "rollup-plugin-node-builtins";
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 const { version, license, name } = require("./package.json");
 const licenseData = fs.readFileSync(path.join(process.cwd(), "LICENSE.md"), {
@@ -20,13 +19,15 @@ const bannerPlugin = {
 const exportFormat = format => ({
   input: "src/index.ts",
   output: {
-    name,
+    name: name.replace(/(^|-)(\w)/g, ($0, $1, $2) => $2.toUpperCase()),
     format,
-    file: `dist/${format}/react-anchor-navigation.js`
+    file: `dist/${format}/react-anchor-navigation.js`,
+    globals: {
+      react: "React"
+    }
   },
   external: ["react"],
   plugins: [
-    builtins(),
     resolve({
       extensions: [".tsx", ".ts"]
     }),
@@ -43,6 +44,6 @@ const exportFormat = format => ({
       output: { comments: /@license/ }
     }),
     sizeSnapshot()
-  ].filter(v => v)
+  ]
 });
 export default ["umd", "cjs", "esm"].map(exportFormat);
