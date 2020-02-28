@@ -18,9 +18,9 @@ interface TProps {
   offset?: number;
 }
 
-export function AnchorProvider({ children, getScroller, offset }: TProps) {
+export function AnchorProvider({ children, getScroller, offset = 0 }: TProps) {
   const ref = useRef<TStore>({
-    offset: offset || 0,
+    offset,
     sections: [],
     blockScrollEvent: false,
     scroller: null
