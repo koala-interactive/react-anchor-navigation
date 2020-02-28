@@ -55,6 +55,11 @@ AnchorProvider is our top level contextProvider. Wrap it around your topmost com
 </AnchorProvider>
 ```
 
+| Key         | Type                |                                                                                                      Description |
+| ----------- | :-----------------: | ---------------------------------------------------------------------------------------------------------------: |
+| offset      | `number`            | The offset amount of pixels from the top, usefull when handling fixed header or sticky navigation (default: `0`) |
+| getScroller | `() => HTMLElement` | Function to returns the scrollable element  (default: `body`)                                                    |
+
 It will provide the AnchorContext to all children.
 
 #### AnchorContext
@@ -74,6 +79,7 @@ Here is its typing :
 | registerSection   |        `(element: HTMLElement) => void`         | Function to add a Section to our sections list, our scrollEvent listener will then update the hash if the section is scrolled to |
 | unregisterSection |        `(element: HTMLElement) => void`         |                 Function to remove a Section to our sections list, our scrollEvent listener will then stop checking this section |
 | setHash           | `(hash: string, withScroll?: boolean) => void;` |                              Setter function from the internal useHash hooks, use it to programmatically change the current hash |
+| offset            |                    `number`                     |                 The offset amount of pixels from the top, usefull when handling fixed header or sticky navigation (default: `0`) |
 
 #### AnchorSection
 
