@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { noop } from "../utils/noop";
 
 export interface TContext {
+  offset: number;
   sections: HTMLElement[];
   hash: string;
   registerSection: (element: HTMLElement) => void;
@@ -11,6 +12,7 @@ export interface TContext {
 }
 
 export const AnchorContext = createContext<TContext>({
+  offset: 0,
   sections: [],
   hash: "",
   registerSection: noop,

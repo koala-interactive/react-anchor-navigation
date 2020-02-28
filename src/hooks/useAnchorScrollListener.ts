@@ -16,20 +16,20 @@ export function useAnchorScrollListener(
   setHash: TContext["setHash"]
 ) {
   useEffect(() => {
-    const throttleScrollEvent = throttle(() => {
-      const { blockScrollEvent, sections, scroller } = ref.current;
+    const onScroll = () => {
+      const { blockScrollEvent, sections, scroller, offset } = ref.current;
 
       if (blockScrollEvent || !sections.length) {
         return;
       }
 
-      const y = scroller
+      const y = (scroller
         ? scroller.scrollTop
-        : window.pageYOffset || document.documentElement.scrollTop;
+        : window.pageYOffset || document.documentElement.scrollTop) + offset;
 
       // Before the first element
       if (getElementScrollPosition(sections[0], scroller) > y) {
-        setHash(`#`, false);
+        setHash("#", false);
         return;
       }
 
@@ -37,14 +37,19 @@ export function useAnchorScrollListener(
       const selectedIndex = sections.findIndex(
         item => getElementScrollPosition(item, scroller) > y
       );
-      const selectedElement = sections[Math.max(selectedIndex - 1, 0)];
+
+      const selectedElement = selectedIndex === -1
+        ? sections[sections.length - 1]
+        : sections[Math.max(selectedIndex - 1, 0)];
 
       if (selectedElement) {
         setHash(`#${selectedElement.id}`, false);
       }
-    }, 100);
+    };
 
+    const throttleScrollEvent = throttle(onScroll, 100);
     addEventListener("scroll", throttleScrollEvent, PASSIVE_OPTION);
+    onScroll();
 
     return () => {
       removeEventListener("scroll", throttleScrollEvent, PASSIVE_OPTION);

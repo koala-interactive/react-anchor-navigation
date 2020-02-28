@@ -1,7 +1,7 @@
 // Passive event support
 // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
 export const SUPPORT_PASSIVE_EVENT =
-  process.env.BUILD_TARGET === "client" &&
+  typeof addEventListener !== 'undefined' &&
   (() => {
     let supportsPassiveOption = false;
 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom section component</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="../dist/umd/react-anchor-navigation.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <style>
+    body, html, ul, li {
+      margin:0;
+      padding: 0;
+      font-family: Arial;
+    }
+    nav {
+      position: fixed;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+      text-align: center;
+      width: 100%;
+      background-color: white;
+      z-index: 1;
+    }
+    li {
+      display: inline-block;
+      width: 25%;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      padding: 20px 0;
+      color: black;
+      text-decoration: none;
+      color: #555ccc;
+      transition: color 0.3s, background-color 0.3s;
+      transition: all 0.3s;
+      border-bottom: 5px solid transparent;
+    }
+    a.selected {
+      background-color: #d4e3ef;
+      color: #000980;
+      border-bottom: 5px solid #4bb6f5;
+    }
+    main {
+      padding-top:58px;
+    }
+    section {
+      height: 150vh;
+      background: linear-gradient(230deg,#a24bcf,#4b79cf,#4bc5cf);
+      padding: 100px;
+      font-size: 52px;
+      color: white;
+      text-align: center;
+      transition: all 0.3s;
+      border-color: black;
+      background-size: 200%
+    }
+    section.selected {
+      border-left: 10vw solid black;
+      border-right: 10vw solid black;
+      animation: BgAnimation 3s ease infinite;
+      color: black;
+      font-size: 100px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    @keyframes BgAnimation {
+        0%{background-position:50% 50%}
+        50%{background-position:100% 100%}
+        100%{background-position:50% 50%}
+    }
+  </style>
+  <body>
+    <div id="react-root"></div>
+    <script type="text/babel">
+
+const {AnchorProvider, AnchorLink, AnchorContext} = ReactAnchorNavigation;
+const {useContext, useRef, useEffect} = React;
+
+const list = Array.from({ length: 4 }, (v, i) => ({
+  id : `part-${i + 1}`,
+  title: `Part ${i + 1}`
+}));
+
+const CustomSection = ({ children, ...attributes }) => {
+  const { registerSection, unregisterSection, hash } = useContext(AnchorContext);
+  const ref = useRef(null);
+  const selected = attributes.id === hash.substr(1);
+  const newClassName = (attributes.className ? `${attributes.className}` : '') + (selected ? ' selected' : '');
+
+  // Logic to register/unregister component
+  // when added/removed from DOM
+  useEffect(() => {
+    if (ref.current) {
+      registerSection(ref.current);
+
+      // Initialization of the component.
+      // If mounted from a SPA without server-side rendering the hash will not
+      // scroll at all, so do it manually
+      if (attributes.id === location.hash.substr(1)) {
+        ref.current.scrollIntoView();
+      }
+    }
+
+    return () => {
+      if (ref.current) {
+        unregisterSection(ref.current);
+      }
+    };
+  }, []);
+
+  return (
+    <section {...attributes} className={newClassName} ref={ref}>
+      {children}
+    </section>
+  );
+}
+
+const Root = () => (
+  <AnchorProvider offset={58}>
+    <nav>
+      { list.map((item) => (
+        <li key={item.id}>
+          <AnchorLink href={`#${item.id}`} activeClassName="selected">{item.title}</AnchorLink>
+        </li>
+      )) }
+    </nav>
+    <main>
+      { list.map((item) => (
+        <CustomSection id={item.id} key={item.id}>
+          <h2>{item.title}</h2>
+          <p>⬇️</p>
+        </CustomSection>
+      ))}
+    </main>
+  </AnchorProvider>
+);
+
+ReactDOM.render(<Root />, document.getElementById('react-root'));
+    </script>
+  </body>
+</html>

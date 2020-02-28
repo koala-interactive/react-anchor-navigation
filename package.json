@@ -11,6 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "del dist && rollup -c"
   },
+  "files": [
+    "dist/",
+    "index.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/koala-interactive/react-anchor-navigation.git"
@@ -42,7 +46,6 @@
     "del-cli": "^3.0.0",
     "rollup": "^1.30.0",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-size-snapshot": "^0.10.0",
     "rollup-plugin-terser": "^5.2.0",
     "tslib": "^1.10.0",
