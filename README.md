@@ -7,7 +7,7 @@ React lightweight library for anchor scrolling and navigation tied to URL hash.
 
 ## Features
 
-This library exports multiple helpers designed to make your anchor navigation works seamlessly.
+This library exports multiple helpers designed to make your anchor navigation works seamlessly. Check the [examples](./examples/custom-section.html)
 
 Four components :
 
@@ -119,12 +119,7 @@ interface TProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 TODO
 
-### Embedded Demos
-
-<iframe src="./examples/basic.html" style="width:100%; height:300px"></iframe>
-
 ## Roadmap
 
 - Finish completing the README
-- Add an example project
 - Add testing

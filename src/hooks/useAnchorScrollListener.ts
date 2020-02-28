@@ -16,7 +16,7 @@ export function useAnchorScrollListener(
   setHash: TContext["setHash"]
 ) {
   useEffect(() => {
-    const throttleScrollEvent = throttle(() => {
+    const onScroll = () => {
       const { blockScrollEvent, sections, scroller, offset } = ref.current;
 
       if (blockScrollEvent || !sections.length) {
@@ -29,7 +29,7 @@ export function useAnchorScrollListener(
 
       // Before the first element
       if (getElementScrollPosition(sections[0], scroller) > y) {
-        setHash(`#`, false);
+        setHash("#", false);
         return;
       }
 
@@ -45,9 +45,11 @@ export function useAnchorScrollListener(
       if (selectedElement) {
         setHash(`#${selectedElement.id}`, false);
       }
-    }, 100);
+    };
 
+    const throttleScrollEvent = throttle(onScroll, 100);
     addEventListener("scroll", throttleScrollEvent, PASSIVE_OPTION);
+    onScroll();
 
     return () => {
       removeEventListener("scroll", throttleScrollEvent, PASSIVE_OPTION);

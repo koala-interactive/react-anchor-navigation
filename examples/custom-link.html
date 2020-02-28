@@ -35,11 +35,12 @@
       color: #555ccc;
       transition: all 0.3s;
       border-bottom: 5px solid transparent;
-      border-bottom: 5px solid #4bb6f5
+      line-height: 25px;
     }
     a.selected {
       background-color: #d4e3ef;
       color: #000980;
+      border-bottom: 5px solid #4bb6f5
     }
     main {
       padding-top:58px;
@@ -57,7 +58,21 @@
     <div id="react-root"></div>
     <script type="text/babel">
 
-const {AnchorProvider, AnchorLink, AnchorSection} = ReactAnchorNavigation;
+const {AnchorProvider, AnchorContext, AnchorSection} = ReactAnchorNavigation;
+const {useContext} = React;
+
+const CustomLink = ({children, className, ...attributes}) => {
+  const {hash} = useContext(AnchorContext);
+  const selected = hash === attributes.href;
+  const newClassName = (className ? `${className}` : '') + (selected ? ' selected' : '');
+
+  return (
+    <a {...attributes} className={newClassName}>
+      {selected ? '🎨' : ' '} {children}
+    </a>
+  );
+}
+
 const list = Array.from({ length: 4 }, (v, i) => ({
   id : `part-${i + 1}`,
   title: `Part ${i + 1}`
@@ -68,7 +83,7 @@ const Root = () => (
     <nav>
       { list.map((item) => (
         <li key={item.id}>
-          <AnchorLink href={`#${item.id}`} activeClassName="selected">{item.title}</AnchorLink>
+          <CustomLink href={`#${item.id}`} activeClassName="selected">{item.title}</CustomLink>
         </li>
       )) }
     </nav>
