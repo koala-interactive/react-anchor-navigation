@@ -2,12 +2,12 @@
   "dist/umd/react-anchor-navigation.js": {
     "bundled": 3737,
     "minified": 3735,
-    "gzipped": 1594
+    "gzipped": 1595
   },
   "dist/cjs/react-anchor-navigation.js": {
     "bundled": 3590,
     "minified": 3584,
-    "gzipped": 1524
+    "gzipped": 1525
   },
   "dist/esm/react-anchor-navigation.js": {
     "bundled": 3452,

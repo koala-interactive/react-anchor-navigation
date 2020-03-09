@@ -1,6 +1,6 @@
 {
   "name": "react-anchor-navigation",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React lightweight library for anchor scrolling and navigation tied to URL hash.",
   "main": "./dist/cjs/react-anchor-navigation.js",
   "module": "./dist/esm/react-anchor-navigation.js",
@@ -13,7 +13,8 @@
   },
   "files": [
     "dist/",
-    "index.d.ts"
+    "index.d.ts",
+    "src/"
   ],
   "repository": {
     "type": "git",

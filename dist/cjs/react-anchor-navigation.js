@@ -1,5 +1,5 @@
 /**
- * @license react-anchor-navigation 0.2.1
+ * @license react-anchor-navigation 0.2.2
  * MIT License
  * License: MIT
  */
