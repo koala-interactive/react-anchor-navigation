@@ -16,20 +16,23 @@ export function useAnchorScrollListener(
   setHash: TContext["setHash"]
 ) {
   useEffect(() => {
-    const onScroll = () => {
+    const onScroll = (event?: React.UIEvent<HTMLElement>) => {
       const { blockScrollEvent, sections, scroller, offset } = ref.current;
 
       if (blockScrollEvent || !sections.length) {
         return;
       }
 
-      const y = (scroller
-        ? scroller.scrollTop
-        : window.pageYOffset || document.documentElement.scrollTop) + offset;
+      const y =
+        (scroller
+          ? scroller.scrollTop
+          : window.pageYOffset || document.documentElement.scrollTop) + offset;
 
       // Before the first element
       if (getElementScrollPosition(sections[0], scroller) > y) {
-        setHash("#", false);
+        if (event) {
+          setHash("#", false);
+        }
         return;
       }
 
@@ -38,9 +41,10 @@ export function useAnchorScrollListener(
         item => getElementScrollPosition(item, scroller) > y
       );
 
-      const selectedElement = selectedIndex === -1
-        ? sections[sections.length - 1]
-        : sections[Math.max(selectedIndex - 1, 0)];
+      const selectedElement =
+        selectedIndex === -1
+          ? sections[sections.length - 1]
+          : sections[Math.max(selectedIndex - 1, 0)];
 
       if (selectedElement) {
         setHash(`#${selectedElement.id}`, false);
