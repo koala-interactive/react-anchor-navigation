@@ -1,17 +1,17 @@
 {
   "dist/umd/react-anchor-navigation.js": {
-    "bundled": 3737,
-    "minified": 3735,
-    "gzipped": 1595
+    "bundled": 3739,
+    "minified": 3737,
+    "gzipped": 1592
   },
   "dist/cjs/react-anchor-navigation.js": {
-    "bundled": 3590,
-    "minified": 3584,
-    "gzipped": 1525
+    "bundled": 3592,
+    "minified": 3586,
+    "gzipped": 1521
   },
   "dist/esm/react-anchor-navigation.js": {
-    "bundled": 3452,
-    "minified": 3446,
+    "bundled": 3454,
+    "minified": 3448,
     "gzipped": 1501,
     "treeshaked": {
       "rollup": {
