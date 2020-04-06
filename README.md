@@ -2,6 +2,7 @@
 
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/koala-interactive/react-anchor-navigation/react)
 ![npm type definitions](https://img.shields.io/npm/types/react-anchor-navigation)
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
 React lightweight library for anchor scrolling and navigation tied to URL hash.
 
@@ -55,10 +56,10 @@ AnchorProvider is our top level contextProvider. Wrap it around your topmost com
 </AnchorProvider>
 ```
 
-| Key         | Type                |                                                                                                      Description |
+| Key         |        Type         |                                                                                                      Description |
 | ----------- | :-----------------: | ---------------------------------------------------------------------------------------------------------------: |
-| offset      | `number`            | The offset amount of pixels from the top, usefull when handling fixed header or sticky navigation (default: `0`) |
-| getScroller | `() => HTMLElement` | Function to returns the scrollable element  (default: `body`)                                                    |
+| offset      |      `number`       | The offset amount of pixels from the top, usefull when handling fixed header or sticky navigation (default: `0`) |
+| getScroller | `() => HTMLElement` |                                                     Function to returns the scrollable element (default: `body`) |
 
 It will provide the AnchorContext to all children.
 
@@ -124,6 +125,14 @@ interface TProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 ### Custom Components Examples
 
 TODO
+
+### Testing
+
+react-anchor-navigation can be tested with the end-to-end testing library Cypress.
+
+To run the tests, run `yarn cypress` and select the test specs to run in the Cypress window.
+
+Learn more about writing your own Cypress tests with the [Cypress documentation](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file).
 
 ## Roadmap
 

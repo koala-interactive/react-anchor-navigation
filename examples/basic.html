@@ -3,20 +3,29 @@
   <head>
     <title>Basic usage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
     <script src="../dist/umd/react-anchor-navigation.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <style>
-    body, html, ul, li {
-      margin:0;
+    body,
+    html,
+    ul,
+    li {
+      margin: 0;
       padding: 0;
       font-family: Arial;
     }
     nav {
       position: fixed;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
       text-align: center;
       width: 100%;
       background-color: white;
@@ -35,18 +44,18 @@
       color: #555ccc;
       transition: all 0.3s;
       border-bottom: 5px solid transparent;
-      border-bottom: 5px solid #4bb6f5
+      border-bottom: 5px solid #4bb6f5;
     }
     a.selected {
       background-color: #d4e3ef;
       color: #000980;
     }
     main {
-      padding-top:58px;
+      padding-top: 58px;
     }
     section {
       height: 150vh;
-      background: linear-gradient(230deg,#a24bcf,#4b79cf,#4bc5cf);
+      background: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
       padding: 50px;
       font-size: 52px;
       color: white;
@@ -56,36 +65,41 @@
   <body>
     <div id="react-root"></div>
     <script type="text/babel">
+      const {
+        AnchorProvider,
+        AnchorLink,
+        AnchorSection,
+      } = ReactAnchorNavigation;
+      const list = Array.from({ length: 4 }, (v, i) => ({
+        id: `part-${i + 1}`,
+        title: `Part ${i + 1}`,
+      }));
 
-const {AnchorProvider, AnchorLink, AnchorSection} = ReactAnchorNavigation;
-const list = Array.from({ length: 4 }, (v, i) => ({
-  id : `part-${i + 1}`,
-  title: `Part ${i + 1}`
-}));
+      const Root = () => (
+        <AnchorProvider offset={58}>
+          <nav>
+            {list.map((item) => (
+              <li key={item.id} data-cy={`anchor_link_${item.id}`}>
+                <AnchorLink href={`#${item.id}`} activeClassName="selected">
+                  {item.title}
+                </AnchorLink>
+              </li>
+            ))}
+          </nav>
+          <main>
+            {list.map((item) => (
+              <AnchorSection id={item.id} key={item.id}>
+                <section data-cy={`anchor_section_${item.id}`}>
+                  <h2>{item.title}</h2>
+                  ⬇️
+                </section>
+              </AnchorSection>
+            ))}
+          </main>
+        </AnchorProvider>
+      );
 
-const Root = () => (
-  <AnchorProvider offset={58}>
-    <nav>
-      { list.map((item) => (
-        <li key={item.id}>
-          <AnchorLink href={`#${item.id}`} activeClassName="selected">{item.title}</AnchorLink>
-        </li>
-      )) }
-    </nav>
-    <main>
-      { list.map((item) => (
-        <AnchorSection id={item.id} key={item.id}>
-          <section>
-            <h2>{item.title}</h2>
-            ⬇️
-          </section>
-        </AnchorSection>
-      ))}
-    </main>
-  </AnchorProvider>
-);
-
-ReactDOM.render(<Root />, document.getElementById('react-root'));
+      ReactDOM.render(<Root />, document.getElementById("react-root"));
     </script>
   </body>
 </html>
