@@ -5,7 +5,10 @@ describe("react-anchor-navigation test cases", () => {
       "not.have.class",
       "selected"
     );
-    cy.get("[data-cy=anchor_link_part-3] a").should("have.class", "selected");
+    cy.get("[data-cy=anchor_link_part-3] a").should(
+      "not.have.class",
+      "selected"
+    );
   });
 
   it("Should check that scrolling updates the hash", () => {
