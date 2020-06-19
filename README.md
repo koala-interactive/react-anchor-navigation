@@ -3,6 +3,7 @@
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/koala-interactive/react-anchor-navigation/react)
 ![npm type definitions](https://img.shields.io/npm/types/react-anchor-navigation)
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
+![Continuous Integration](https://github.com/koala-interactive/react-anchor-navigation/workflows/Continuous%20Integration/badge.svg?branch=master)
 
 React lightweight library for anchor scrolling and navigation tied to URL hash.
 
