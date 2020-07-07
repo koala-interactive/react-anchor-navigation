@@ -8,7 +8,8 @@
     "./dist/cjs/react-anchor-navigation.js": "./dist/umd/react-anchor-navigation.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tsc --noEmit",
+    "test": "yarn lint && yarn cypress:headless",
     "build": "del dist && rollup -c",
     "cypress": "cypress open",
     "cypress:headless": "cypress run"
