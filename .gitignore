@@ -10,3 +10,5 @@ yarn.lock
 .vscode
 
 cypress/videos
+
+dist
