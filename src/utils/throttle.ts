@@ -1,5 +1,5 @@
 export function throttle(fn: Function, delay: number) {
-  let timeout: NodeJS.Timeout | null = null;
+  let timeout: ReturnType<typeof setTimeout> | null = null;
 
   function throttledFn() {
     if (!timeout) {
