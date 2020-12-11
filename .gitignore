@@ -9,6 +9,8 @@ yarn.lock
 
 .vscode
 
+cypress/screenshots
 cypress/videos
+cypress/fixtures
 
 dist
