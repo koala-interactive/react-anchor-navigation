@@ -12,7 +12,7 @@ export function useHash(
   const changeHash = (newHash: string, withScroll = true) => {
     setHash(newHash);
 
-    if (globalThis.history && globalThis.location) {
+    if (typeof history !== "undefined" && typeof location !== "undefined") {
       if (withScroll || !("pushState" in history)) {
         location.hash = newHash;
       } else {
