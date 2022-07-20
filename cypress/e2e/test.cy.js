@@ -1,5 +1,3 @@
-const path = require("path");
-
 describe("react-anchor-navigation test cases", { baseUrl: null }, () => {
   it("Should redirect to the correct anchor based on URL's hash", () => {
     cy.visit("/examples/basic.html#part-3");
