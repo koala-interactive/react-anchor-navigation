@@ -1,6 +1,8 @@
-describe("react-anchor-navigation test cases", () => {
+const path = require("path");
+
+describe("react-anchor-navigation test cases", { baseUrl: null }, () => {
   it("Should redirect to the correct anchor based on URL's hash", () => {
-    cy.visit("./examples/basic.html#part-3");
+    cy.visit("/examples/basic.html#part-3");
     cy.get("[data-cy=anchor_link_part-1] a").should(
       "not.have.class",
       "selected"
@@ -9,7 +11,7 @@ describe("react-anchor-navigation test cases", () => {
   });
 
   it("Should check that scrolling updates the hash", () => {
-    cy.visit("./examples/basic.html");
+    cy.visit("/examples/basic.html");
     cy.url().should("include", "#part-1");
     cy.get("[data-cy=anchor_link_part-1] a").should("have.class", "selected");
 

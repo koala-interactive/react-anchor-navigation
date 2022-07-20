@@ -65,11 +65,8 @@
   <body>
     <div id="react-root"></div>
     <script type="text/babel">
-      const {
-        AnchorProvider,
-        AnchorLink,
-        AnchorSection,
-      } = ReactAnchorNavigation;
+      const { AnchorProvider, AnchorLink, AnchorSection } =
+        ReactAnchorNavigation;
       const list = Array.from({ length: 4 }, (v, i) => ({
         id: `part-${i + 1}`,
         title: `Part ${i + 1}`,
