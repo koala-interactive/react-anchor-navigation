@@ -10,7 +10,6 @@
 
 ![e2e](https://github.com/koala-interactive/react-anchor-navigation/workflows/e2e/badge.svg?branch=master)
 
-[see more badges](https://dev.to/envoy_/150-badges-for-github-pnk#group)
 
 ## Description
 
