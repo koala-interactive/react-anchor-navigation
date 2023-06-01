@@ -2,8 +2,6 @@
 
 # react-anchor-navigation
 
-(add badges exemples)
-
 ![npm type definitions](https://img.shields.io/npm/types/react-anchor-navigation)
 
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
@@ -138,8 +136,6 @@ interface TProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 <AnchorLink className="dTable w100 pad15" href="#definitions" activeClassName="blue">
 ```
 
-()
-
 ## ⏳ How to test
 
 react-anchor-navigation can be tested with the end-to-end testing library Cypress.
@@ -151,7 +147,7 @@ Learn more about writing your own Cypress tests with the [Cypress documentation]
 ## 🤝 How to contribute
 
 - fork the project
-- (write how to to launch it)
+- install dependencies (yarn)
 - create a branch from main/master like that
 
       $ contribution/fix/your-github-identity
@@ -182,4 +178,4 @@ check our [jobs opportunity](https://www.linkedin.com/company/koala-interactive/
 
 Copyright (c) 2023 [Koala-Interactive](https://koala-interactive.com/)
 
-This project is [MIT](link-to-your-license-file) licensed.
+This project is [MIT](LICENSE.md) licensed.
