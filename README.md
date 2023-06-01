@@ -1,27 +1,34 @@
+![Logo](https://koala-interactive.com/logo.e927957b.svg)
+
 # react-anchor-navigation
 
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/koala-interactive/react-anchor-navigation/react)
+(add badges exemples)
+
 ![npm type definitions](https://img.shields.io/npm/types/react-anchor-navigation)
+
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
+
 ![lint](https://github.com/koala-interactive/react-anchor-navigation/workflows/lint/badge.svg?branch=master)
+
 ![e2e](https://github.com/koala-interactive/react-anchor-navigation/workflows/e2e/badge.svg?branch=master)
 
-React lightweight library for anchor scrolling and navigation tied to URL hash.
+[see more badges](https://dev.to/envoy_/150-badges-for-github-pnk#group)
 
-## Features
+## Description
 
 This library exports multiple helpers designed to make your anchor navigation works seamlessly. Check the [examples](./examples/custom-section.html)
 
-Four components :
+## 📖 table of content
 
-- [AnchorContext](#AnchorContext)
-- [AnchorLink](#AnchorLink)
-- [AnchorProvider](#AnchorProvider)
-- [AnchorSection](#AnchorSection)
+- [Installation](#🚀-installation)
+- [How to use](#🖥️-how-to-use)
+- [How to test](#⏳-how-to-test)
+- [How to contribute](#🤝-how-to-contribute)
+- [List of our other package](#📦-list-of-our-other-package)
+- [Join us](#⛵-join-us)
+- [License](#license)
 
-## Getting Started
-
-### Installation
+## 🚀 Installation
 
 This project uses react hooks and is therefore reliant on react version >=16.8.6
 
@@ -37,7 +44,14 @@ OR
 yarn add react-anchor-navigation
 ```
 
-### Usage
+## 🖥️ How to use
+
+Four components :
+
+- [AnchorContext](#AnchorContext)
+- [AnchorLink](#AnchorLink)
+- [AnchorProvider](#AnchorProvider)
+- [AnchorSection](#AnchorSection)
 
 ```tsx
 import {
@@ -124,11 +138,9 @@ interface TProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 <AnchorLink className="dTable w100 pad15" href="#definitions" activeClassName="blue">
 ```
 
-### Custom Components Examples
+()
 
-TODO
-
-### Testing
+## ⏳ How to test
 
 react-anchor-navigation can be tested with the end-to-end testing library Cypress.
 
@@ -136,7 +148,38 @@ To run the tests, run `yarn cypress` and select the test specs to run in the Cyp
 
 Learn more about writing your own Cypress tests with the [Cypress documentation](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file).
 
-## Roadmap
+## 🤝 How to contribute
 
-- Finish completing the README
-- Add testing
+- fork the project
+- (write how to to launch it)
+- create a branch from main/master like that
+
+      $ contribution/fix/your-github-identity
+
+  OR
+
+      $ contribution/improvment/your-github-identity
+
+- push several (if needed) clear commits
+- add tests following the way of the other ones have been wrote
+- make sure that all test runs
+- push your code
+
+## 📦 List of our other package
+
+- [is-emoji-supported](https://www.npmjs.com/package/is-emoji-supported#fallback-to-images)
+- [frenchkiss](https://www.npmjs.com/package/frenchkiss)
+- [wowza-webrtc-player](https://www.npmjs.com/package/wowza-webrtc-player)
+- [react-rich-mentions](https://www.npmjs.com/package/react-rich-mentions)
+- [react-anchor-navigation](https://www.npmjs.com/package/react-anchor-navigation)
+
+## ⛵ Join us
+
+May you want to share more than a pull request
+check our [jobs opportunity](https://www.linkedin.com/company/koala-interactive/jobs/)
+
+## License
+
+Copyright (c) 2023 [Koala-Interactive](https://koala-interactive.com/)
+
+This project is [MIT](link-to-your-license-file) licensed.
