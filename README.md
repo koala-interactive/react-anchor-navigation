@@ -44,12 +44,7 @@ yarn add react-anchor-navigation
 
 ## 🖥️ How to use
 
-Four components :
-
-- [AnchorContext](#AnchorContext)
-- [AnchorLink](#AnchorLink)
-- [AnchorProvider](#AnchorProvider)
-- [AnchorSection](#AnchorSection)
+![Enregistrement de l’écran 2023-06-01 à 12 12 50](https://github.com/koala-interactive/react-anchor-navigation/assets/38717285/5f9c9202-cadb-4236-bf3e-56092baa30aa)
 
 ```tsx
 import {
